@@ -22,11 +22,18 @@ Example:
         def random_side_effect():
             print('side effect')
 
+
     assert A().set_x(10).x == 10
     assert A.set_cls_x(20).x == 20
     assert A().x == 20
-    assert A().set_cls_x(30).x == 30
+
+    # classmethods
+    assert A.set_cls_x(30) is A and A.x == 30
+    assert isinstance(A().set_cls_x(40), A) and A.x == 40
+
+    # staticmethods
     assert isinstance(A().random_side_effect(), A)
     assert A.random_side_effect() is A
+
 
 ```
