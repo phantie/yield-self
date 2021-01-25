@@ -51,20 +51,3 @@ def yield_self(f):
         return specialstaticmethod(wrap)
     else:
         raise RuntimeError('unknown argument type', type(f))
-
-class A:
-    x = y = 0
-
-    @yield_self
-    def set_x(self, x):
-        self.x = x
-
-    @yield_self
-    @classmethod
-    def set_cls_x(cls, x):
-        cls.x = x
-
-    @yield_self
-    @staticmethod
-    def random_side_effect():
-        print('side effect')
