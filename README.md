@@ -37,3 +37,11 @@ Example:
 
 
 ```
+
+Import:
+
+    from yself import yield_self
+
+Install:
+
+    pip install git+https://github.com/phantie/yield-self.git
