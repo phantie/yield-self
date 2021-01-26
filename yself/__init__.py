@@ -2,7 +2,7 @@ from functools import wraps
 from types import FunctionType
 
 __all__ = ('yield_self',)
-__version__ = '1.1'
+__version__ = '1.1.1'
 
 class specialstaticmethod:
     def __init__(self, f): self.f = f
@@ -23,7 +23,7 @@ class specialclassmethod:
 def yield_self(f):
     if isinstance(f, FunctionType):
         @wraps(f)
-        def wrap(called_on, *args, **kwargs):
+        def wrap(called_on, /, *args, **kwargs):
             f(called_on, *args, **kwargs)
             return called_on
         return wrap
